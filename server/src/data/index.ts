@@ -5,11 +5,12 @@ export const InventoryDB = () => {
   const inventory: Record<string, number | undefined> = {};
 
   return {
-    set: async (item: string, quantity: number) => {
+    set: async (item: string, quantities: number[]) => {
       // add some fake random latency
-      await new Promise((res) => setTimeout(res, randomSeconds(2)));
+      await new Promise((res) => setTimeout(res, randomSeconds(1)));
 
-      inventory[item] = (inventory[item] ?? 0) + quantity;
+      const quantitiesTotal = quantities.reduce((acc, q) => acc + q, 0);
+      inventory[item] = (inventory[item] ?? 0) + quantitiesTotal;
     },
 
     get: (item: string) => inventory[item],

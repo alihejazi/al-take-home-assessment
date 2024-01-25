@@ -1,4 +1,4 @@
-import { InventoryContext } from "@/context/InventoryProvider";
+import { InventoryContext } from "@/context/inventory-provider";
 import { Box, Flex, SimpleGrid, Spacer, Text } from "@chakra-ui/react";
 import { useContext } from "react";
 

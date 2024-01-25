@@ -1,4 +1,4 @@
-import { InventoryContext } from "@/context/InventoryProvider";
+import { InventoryContext } from "@/context/inventory-provider";
 import {
   Box,
   Button,
@@ -14,21 +14,19 @@ import { useContext } from "react";
 export default function InventoryForm() {
   const { dispatch } = useContext(InventoryContext);
 
-  const initialValues: { name?: string; quantity?: string } = {};
+  const initialValues: { name?: string; quantities?: string } = {};
 
   return (
     <Flex w="full">
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          // actions.setSubmitting(false);
-
           fetch(`http://localhost:3001/inventory/${values.name}`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ quantity: values.quantity }),
+            body: JSON.stringify({ quantities: values.quantities }),
           })
             .then((res) => res.json())
             .then((data) => {
@@ -47,16 +45,16 @@ export default function InventoryForm() {
                 <Field name="name">
                   {({ field }: { field: FieldInputProps<string> }) => (
                     <FormControl flex={1}>
-                      <FormLabel>First name</FormLabel>
+                      <FormLabel>Item name</FormLabel>
                       <Input {...field} placeholder="name" />
                     </FormControl>
                   )}
                 </Field>
                 <Spacer flex={0.3} />
-                <Field name="quantity" flex={1}>
+                <Field name="quantities" flex={1}>
                   {({ field }: { field: FieldInputProps<string> }) => (
                     <FormControl flex={3}>
-                      <FormLabel>Daily Inventory</FormLabel>
+                      <FormLabel>Inventory to add</FormLabel>
                       <Input
                         {...field}
                         placeholder="Comma separated inventory numbers"
@@ -65,13 +63,13 @@ export default function InventoryForm() {
                   )}
                 </Field>
               </Flex>
+              <Spacer h={4} />
               <Button
-                mt={4}
                 colorScheme="teal"
                 type="submit"
                 isLoading={props.isSubmitting}
               >
-                Submit
+                Add
               </Button>
             </Form>
           </Box>

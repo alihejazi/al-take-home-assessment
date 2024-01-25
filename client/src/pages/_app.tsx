@@ -1,4 +1,4 @@
-import { InventoryProvider } from "@/context/InventoryProvider";
+import { InventoryProvider } from "@/context/inventory-provider";
 import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
 

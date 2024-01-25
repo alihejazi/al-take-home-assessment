@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "name": "full-stack-take-home",
+      "path": "."
+    },
+    {
+      "name": "client",
+      "path": "client"
+    },
+    {
+      "name": "server",
+      "path": "server"
+    }
+  ],
+  "settings": {
+    "jest.disabledWorkspaceFolders": ["full-stack-take-home", ".next"]
+  }
+}

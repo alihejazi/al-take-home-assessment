@@ -1,0 +1,21 @@
+{
+  "name": "full-stack-take-home",
+  "version": "1.0.0",
+  "description": "",
+  "packageManager": "yarn@4.0.2",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "client": "yarn workspace client dev",
+    "server": "yarn workspace server dev",
+    "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\"",
+    "test": "yarn workspaces foreach -A run test"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -5,18 +5,16 @@ const api = supertest(app);
 
 describe("Server End to End", () => {
   it("should return added quantity when presented with a list of values", async () => {
+    const name = "hello";
+    const quantities = "1,2";
+
     const res = await api
-      .post("/inventory/hello")
+      .post(`/inventory/${name}`)
       .send({
-        quantities: "1,2",
+        quantities,
       })
       .expect(200);
 
-    expect(res.body).toStrictEqual({ name: "hello", quantity: 3 });
-    // expect(res.body).toHaveProperty("quantity");
-    // expect(res.body).toHaveProperty("name");
-
-    // expect(res.body.quantity).toEqual(3);
-    // expect(res.body.name).toEqual("hello");
+    expect(res.body).toStrictEqual({ name, quantity: 3 });
   }, 10000);
 });

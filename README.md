@@ -34,7 +34,7 @@ We would like to show an error message on the UI if we find examples where we ca
 
 It also turns out that this little app became quite popular. But unfortunately it was made for a single user, meaning if two people use the same name for an inventory item their numbers will get mixed up!
 
-For example, if user A creates an item called `Shoes, 20` and user B creates one for `Shoes, 10` they will both see `Shoes, 30`! 
+For example, if user A creates an item called `Shoes, 20` and user B creates one for `Shoes, 10` they will both see `Shoes, 30`!
 
 Can you introduce something to the app that can properly keep the inventories separated for each user.
   

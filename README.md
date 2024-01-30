@@ -54,17 +54,17 @@ You do not need to be incredibly thorough in your testing. Feel free to specify 
 
 The project source code and dependencies should be made available in GitHub. Here are the steps you should follow:
 
-- Clone or fork this repository
+- Clone this repository (do not fork it!)
 - Create a new file called `SOLUTION.md` that you can use for:
   - Special build instructions, if any
   - List of third-party libraries used and short description of why/how they were used
   - Changes and updated done to the UI and how it works, if any
-- Once the work is complete, give us the link for the repository (if you cloned the repo), or submit a PR (if you forked).
+- Once the work is complete, bundle the code into a zip file and email it to us.
 - Avoid using huge commits hiding your progress. Feel free to work on a branch and use rebase to adjust your commits before submitting the final version.
 - Write at least some unit tests for any modules you create and/or change. To help validate your solution.
 - Be as clean and concise as possible with your work.
 - **Ensure the code compiles and runs!**
-- You have 5 days from the initial call to deliver the solution. It shouldn't take you more than an hour to resolve this.
+- You have 2 days from the initial call to deliver the solution.
 
 ## Usage
 

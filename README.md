@@ -44,9 +44,9 @@ Please create and or update the tests to ensure the issue won't happen again and
 
 The data store is in memory for simplicity and it does not need to be persisted between runs. This isn't something you need to worry about, nor is it something we will be evaluating.
 
-Feel free to change any and all parts of the code. But, please create a  `SOLUTION.md` file describing what you've changed and why. We'll use it to help understand your decisions. We can run through them on the technical interview!
+Feel free to change any and all parts of the code. But, please create a `SOLUTION.md` file describing what you've changed and why. We'll use it to help understand your decisions. We can run through them on the technical interview!
 
-You do not need to be incredibly thorough in your testing. Feel free to specify what other kinds of testing you would add in the `SOLUTION.md` file.
+IF you decide to add UI elements, then you do not have to worry about how it looks. We want working software that's to spec. You also do not need to be incredibly thorough in your testing. Feel free to specify what other kinds of testing you would add in the `SOLUTION.md` file.
 
 **You do not need to build an auth system or handle anything auth related for the second issue. Keep it simple, as long as the numbers don't clash in that one session, then we're good!**
 

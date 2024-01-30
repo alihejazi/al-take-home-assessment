@@ -18,7 +18,7 @@ The merchant can repeat this as many times as they wish.
 
 ## Instructions & Scope
 
-This test should take you no more than an hour to implement. And before you start solutionising please familiarize yourself with the codebase.
+We have tried to streamline this test, so that it shouldn't take you more than a couple of hour to resolve. And before you start solutionising please familiarize yourself with the codebase.
 
 ### Issues
 

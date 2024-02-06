@@ -1,9 +1,11 @@
 import cors from "cors";
 import express from "express";
 import { InventoryDB } from "./data";
+import Utils from "./utils";
 
 const app = express();
 const db = InventoryDB();
+const utils = new Utils();
 
 app.use(cors());
 app.use(express.json());
@@ -21,7 +23,14 @@ app.post("/inventory/:name", async (req, res) => {
     })
   }
 
-  const quantitiesNumberList = (req.body.quantities as string)
+  if (!utils.validateQuantities(quantities)) {
+    // use 'return' keyword so code doesn't continue running!
+    return res.status(400).send({
+      error: 'Invalid number(s) found in quantities!'
+    });
+  }
+
+  const quantitiesNumberList = (quantities as string)
     .split(",")
     .map((q) => parseInt(q));
   

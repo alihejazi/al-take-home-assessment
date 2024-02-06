@@ -2,17 +2,35 @@ const randomSeconds = (seconds: number) =>
   Math.floor(Math.random() * (seconds * 1000)) + 500;
 
 export const InventoryDB = () => {
-  const inventory: Record<string, number | undefined> = {};
+  interface ItemsToQuantitiesMapper {
+    [key: string]: number
+  }
+
+  const inventory: Record<string, ItemsToQuantitiesMapper> = {};
 
   return {
-    set: async (item: string, quantities: number[]) => {
+    set: async (username: string, item: string, quantities: number[]) => {
       // add some fake random latency
       await new Promise((res) => setTimeout(res, randomSeconds(1)));
 
       const quantitiesTotal = quantities.reduce((acc, q) => acc + q, 0);
-      inventory[item] = (inventory[item] ?? 0) + quantitiesTotal;
+
+      let userItems: ItemsToQuantitiesMapper = inventory[username];
+
+      if (userItems && userItems[item]) {
+        userItems[item] += quantitiesTotal;
+      }
+
+      else {
+        if (!userItems) {
+          userItems = {}
+        }
+        userItems[item] = quantitiesTotal;
+      }
+
+      inventory[username] = userItems;
     },
 
-    get: (item: string) => inventory[item],
+    get: (username: string, item: string) => inventory[username][item],
   };
 };

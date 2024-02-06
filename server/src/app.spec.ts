@@ -7,11 +7,13 @@ describe("Server End to End", () => {
   it("should return added quantity when presented with a list of values", async () => {
     const name = "hello";
     const quantities = "1,2";
+    const username = "user1";
 
     const res = await api
       .post(`/inventory/${name}`)
       .send({
         quantities,
+        username
       })
       .expect(200);
 

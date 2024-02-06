@@ -44,12 +44,34 @@ export default function InventoryForm() {
     username: users[0].username
   };
 
+  // this helper (onlyContainsNumbers) should even reject floats/doubles
+  const onlyContainsNumbers = (str: string) => /^\d+$/.test(str);
+  const isNumber = (str: string) => ! isNaN(Number(str)) && onlyContainsNumbers(str);
+
+  const validateQuantities = (quantities: string): boolean => {
+    const splitted = quantities.split(',')
+    for (let i = 0; i < splitted.length; i++) {
+      const number = splitted[i];
+      if (!isNumber(number.trim())) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   const formSubmitted = ((values: Values, actions: FormikHelpers<Values>) => {
     if (!values || !values.name || !values.username || !values.quantities) {
       alert('Please ensure all values are populated!')
       actions.setSubmitting(false);
       return;
     }
+
+    if (!validateQuantities(values.quantities)) {
+      alert('Please ensure quantities are only comma-separated numbers!');
+      actions.setSubmitting(false);
+      return;
+    }
+
     fetch(`http://localhost:3001/inventory/${values.name}`, {
       method: "POST",
       headers: {
